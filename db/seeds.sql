@@ -7,7 +7,7 @@ VALUES  ("Human Resources"),
         ("Production");
 
 INSERT INTO roles (title, salary, department_id)
-        ("HR specialist", 60000, 1),
+VALUES  ("HR specialist", 60000, 1),
         ("Server Engineer", 70000, 2),
         ("Accountant", 80000, 3),
         ("Project Manager", 60000, 4),
@@ -15,7 +15,7 @@ INSERT INTO roles (title, salary, department_id)
         ("Production Designer", 90000, 6);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
-        ("Sue", "Karen", 1, NULL),
+VALUES  ("Sue", "Karen", 1, NULL),
         ("Jim", "Roberts", 2, NULL),
         ("Kyle", "Baca", 3, NULL),
         ("Zachary", "Coleman", 4, NULL),
