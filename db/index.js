@@ -24,9 +24,9 @@ class TeamDB {
   
 
 
-  addDepartment() {
+  addDepartment(input) {
     return this.connection.promise().query(
-      "INSERT INTO DEPARTMENT (department_name) VALUES (?)"
+      "INSERT INTO department (department_name) VALUES (?)", input
     )
   }
 

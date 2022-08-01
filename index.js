@@ -39,7 +39,7 @@ const startQuestion = () => {
       break;
 
     case "add a department":
-      addDepartment(); 
+      addDeptPrompt(); 
       break;
     
     case "add a role":
@@ -85,15 +85,44 @@ const viewAllEmployees = () => {
     startQuestion();
   })
 }
-// viewAllEmployees();
-// viewAllDepartments();
+
+// ADD department 
+const addDeptQ = 
+    [
+      {
+        type: 'input',
+        name: 'newDepartment',
+        message: 'what is the name of the department?',
+      }
+    ]
+const addDeptPrompt = () => {
+  inquirer.prompt(addDeptQ)
+  .then((answer) => {
+    TeamDB.addDepartment(answer.newDepartment)
+    console.log(`added ${answer.newDepartment} to team database.`)
+  })
+  .then(() => {
+    startQuestion();
+  }
+  )
+}
+
+
+
+// const addDepartment = () => {
+//   TeamDB.department.addDepartment()
+//   .then(([rows]) => {
+//     console.table(rows)
+//     startQuestion();
+//   })
+
+// }
+
+
+
 startQuestion();
 
 
-// const nextQuestion = () => {
-//   inquirer.prompt(secondQuestion)
-//   .then(answers.next)
-// }
 
 
 
