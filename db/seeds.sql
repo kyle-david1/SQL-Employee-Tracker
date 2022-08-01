@@ -16,10 +16,10 @@ VALUES  ("HR specialist", 60000, 1),
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES  ("Sue", "Karen", 1, NULL),
-        ("Jim", "Roberts", 2, NULL),
-        ("Kyle", "Baca", 3, NULL),
+        ("Jim", "Roberts", 2, 1),
+        ("Kyle", "Baca", 3, 1),
         ("Zachary", "Coleman", 4, NULL),
-        ("Trevor", "Noah", 5, NULL),
-        ("Kim", "Bardashian", 6, NULL);
+        ("Trevor", "Noah", 5, 4),
+        ("Kim", "Bardashian", 6, 4);
       
 

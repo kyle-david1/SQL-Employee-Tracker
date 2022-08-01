@@ -12,17 +12,17 @@ class TeamDB {
   }
   viewAllRoles() {
   return this.connection.promise().query(
-    "SELECT * FROM ROLES"
-  )
-
-}
+    "SELECT roles.id, roles.title, department.department_name, roles.salary FROM roles INNER JOIN department ON roles.department_id=department.id"
+    )
+  }
 
   viewAllEmployees() {
   return this.connection.promise().query(
-    "SELECT * FROM EMPLOYEE"
-  )
+    "SELECT employee.id, employee.first_name, employee.last_name, roles.title, department.department_name AS department, roles.salary, CONCAT(manager.first_name, ' ', manager.last_name) AS manager FROM employee LEFT JOIN roles on employee.role_id = roles.id LEFT JOIN department on roles.department_id = department.id LEFT JOIN employee manager on manager.id = employee.manager_id"
+    )
+  }
+  
 
-}
 
   addDepartment() {
     return this.connection.promise().query(
@@ -56,7 +56,7 @@ class TeamDB {
 
 
 
-}
+};
 
 
 module.exports = new TeamDB(connection);
