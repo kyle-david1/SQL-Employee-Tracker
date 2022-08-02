@@ -30,23 +30,23 @@ class TeamDB {
     )
   }
 
-  addRole() {
+  addRole(input) {
     return this.connection.promise().query(
-      "INSERT INTO ROLES (title) VALUES (?)"
+      "INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)", input
     )
   }
 
-  addEmployee() {
+  addEmployee(input) {
     return this.connection.promise().query(
-      "INSERT INTO EMPLOYEE (first_name)(last_name)(role_id)"
+      "INSERT INTO employee (first_name,last_name, role_id) VALUES (?, ?, ?)", input
     )
   }
 
-  updateEmployee() {
-    return this.connection.promise().query(
-      "SELECT * FROM EMPLOYEE"
-    )
-  }
+  // updateEmployee(input) {
+  //   return this.connection.promise().query(
+  //     "UPDATE employee SET (?) WHERE (first_name, last_name)", input
+  //   )
+  // }
 
 
 

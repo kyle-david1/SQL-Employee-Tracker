@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const cTable = require('console.table');
 const connection = require('./db/connection');
 const TeamDB = require('./db/index.js');
-const { addDepartment, addRole } = require('./db/index.js');
+const { addDepartment, addRole, addEmployee } = require('./db/index.js');
 
 // const init = () => {
 // console.log('Welcome to your Employee Tracker');
@@ -43,15 +43,15 @@ const startQuestion = () => {
       break;
     
     case "add a role":
-      addRole();
+      addRolePrompt();
       break;
     
     case "add employee":
-      addEmployee();
+      addEmployeePrompt();
       break;
 
     case "update employee":
-      updateEmployee();
+      updateEmployeePrompt();
       break;
 
   }
@@ -107,7 +107,45 @@ const addDeptPrompt = () => {
   )
 }
 
+const addRoleQ = 
+    [
+      {
+        type: 'input',
+        name: 'newRole',
+        message: 'what is the name, salary and department id of the role youd like to add?',
+      }
+    ]
+    const addRolePrompt = () => {
+      inquirer.prompt(addRoleQ)
+      .then((answer) => {
+        TeamDB.addRole(answer.newRole)
+        console.log(`added ${answer.newRole} to team database.`)
+      })
+      .then(() => {
+        startQuestion();
+      }
+      )
+    }
 
+const addEmployeeQ = 
+    [
+      {
+        type: 'input',
+        name: 'newEmployee',
+        message: 'what is the first name, last name and role id of the employee you would like to add?',
+      }
+    ]
+    const addEmployeePrompt = () => {
+      inquirer.prompt(addEmployeeQ)
+      .then((answer) => {
+        TeamDB.addEmployee(answer.newEmployee)
+        console.log(`added ${answer.newEmployee} to team database.`)
+      })
+      .then(() => {
+        startQuestion();
+      }
+      )
+    }
 
 // const addDepartment = () => {
 //   TeamDB.department.addDepartment()
