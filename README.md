@@ -34,7 +34,7 @@
   
   
   ## Credits
-  Collaborated with Sara Baqla\n
+  Collaborated with Sara Baqla
   github: https://github.com/missatrox44
   
   
@@ -43,7 +43,7 @@
   
   
   ## Questions 
-  Github: [kyle-david1](https://github.com/)\n
+  Github: [kyle-david1](https://github.com/)
   Email: kdbaca5892@gmail.com
 
   
